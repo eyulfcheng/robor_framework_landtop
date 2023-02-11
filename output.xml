@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.8.5 on win32)" generated="20230210 15:48:44.060" rpa="false" schemaversion="3">
+<suite id="s1" name="Landtop Buy" source="D:\workbench\python flask\landtop_buy.robot">
+<test id="s1-t1" name="測試用步驟" line="15">
+<kw name="開啟瀏覽器">
+<arg>${web_url}</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<arg>option=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230210 15:48:44.322" level="INFO">Opening browser 'chrome' to base url 'https://www.landtop.com.tw/'.</msg>
+<status status="PASS" starttime="20230210 15:48:44.320" endtime="20230210 15:48:51.490"/>
+</kw>
+<status status="PASS" starttime="20230210 15:48:44.320" endtime="20230210 15:48:51.490"/>
+</kw>
+<kw name="檢查網頁">
+<kw name="Check Exist">
+<arg>//div[contains(@class,"simple-logo")]</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230210 15:48:52.492" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230210 15:48:51.491" endtime="20230210 15:48:52.492"/>
+</kw>
+<kw name="Get Element Count" library="Selenium2Library">
+<var>${count}</var>
+<arg>${xp}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230210 15:48:52.616" level="INFO">${count} = 1</msg>
+<status status="PASS" starttime="20230210 15:48:52.492" endtime="20230210 15:48:52.616"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${res}</var>
+<arg>${count} &gt; 0</arg>
+<arg>${True}</arg>
+<arg>${False}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20230210 15:48:52.617" level="INFO">${res} = True</msg>
+<status status="PASS" starttime="20230210 15:48:52.616" endtime="20230210 15:48:52.617"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${res}!=${True}</arg>
+<arg>Log "Not Found ${xp}"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230210 15:48:52.617" endtime="20230210 15:48:52.617"/>
+</kw>
+<status status="PASS" starttime="20230210 15:48:51.491" endtime="20230210 15:48:52.617"/>
+</kw>
+<status status="PASS" starttime="20230210 15:48:51.491" endtime="20230210 15:48:52.617"/>
+</kw>
+<kw name="登入">
+<kw name="Click Element" library="Selenium2Library">
+<arg>//a[contains(text(),'登入')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230210 15:48:52.619" level="INFO">Clicking element '//a[contains(text(),'登入')]'.</msg>
+<status status="PASS" starttime="20230210 15:48:52.618" endtime="20230210 15:48:53.871"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//input[contains(@id,"signin-email")]</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230210 15:48:53.872" endtime="20230210 15:48:53.904"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>//input[contains(@id,"signin-email")]</arg>
+<arg>${email}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230210 15:48:53.905" level="INFO">Sending key(s) ('f129771057f@gmail.com',) to //input[contains(@id,"signin-email")] element.</msg>
+<msg timestamp="20230210 15:48:54.185" level="INFO">Sending keys f129771057f@gmail.com</msg>
+<status status="PASS" starttime="20230210 15:48:53.905" endtime="20230210 15:48:54.258"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>//input[contains(@id,"password")]</arg>
+<arg>${password}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230210 15:48:54.258" level="INFO">Sending key(s) ('landtop506516',) to //input[contains(@id,"password")] element.</msg>
+<msg timestamp="20230210 15:48:54.563" level="INFO">Sending keys landtop506516</msg>
+<status status="PASS" starttime="20230210 15:48:54.258" endtime="20230210 15:48:54.621"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//button[contains(text(),'登入')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230210 15:48:54.621" level="INFO">Clicking element '//button[contains(text(),'登入')]'.</msg>
+<status status="PASS" starttime="20230210 15:48:54.621" endtime="20230210 15:48:56.054"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230210 15:48:58.054" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230210 15:48:56.054" endtime="20230210 15:48:58.054"/>
+</kw>
+<status status="PASS" starttime="20230210 15:48:52.618" endtime="20230210 15:48:58.054"/>
+</kw>
+<kw name="加入購物車">
+<kw name="Wait And Click">
+<arg>//span[contains(text(),'手機平板')]/../img</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${xp}</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230210 15:48:58.055" endtime="20230210 15:48:58.092"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${xp}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230210 15:48:58.093" level="INFO">Clicking element '//span[contains(text(),'手機平板')]/../img'.</msg>
+<status status="PASS" starttime="20230210 15:48:58.092" endtime="20230210 15:48:59.793"/>
+</kw>
+<status status="PASS" starttime="20230210 15:48:58.055" endtime="20230210 15:48:59.793"/>
+</kw>
+<kw name="Wait And Click">
+<arg>//span[contains(text(),'ASUS')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${xp}</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230210 15:48:59.793" endtime="20230210 15:48:59.831"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${xp}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230210 15:48:59.832" level="INFO">Clicking element '//span[contains(text(),'ASUS')]'.</msg>
+<status status="PASS" starttime="20230210 15:48:59.831" endtime="20230210 15:49:00.348"/>
+</kw>
+<status status="PASS" starttime="20230210 15:48:59.793" endtime="20230210 15:49:00.348"/>
+</kw>
+<kw name="Wait And Click">
+<arg>//h2[contains(text(),'Zenfone 9 16G/256G')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${xp}</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230210 15:49:00.349" endtime="20230210 15:49:00.884"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${xp}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230210 15:49:00.884" level="INFO">Clicking element '//h2[contains(text(),'Zenfone 9 16G/256G')]'.</msg>
+<status status="PASS" starttime="20230210 15:49:00.884" endtime="20230210 15:49:06.932"/>
+</kw>
+<status status="PASS" starttime="20230210 15:49:00.348" endtime="20230210 15:49:06.932"/>
+</kw>
+<kw name="Wait And Click">
+<arg>//input[contains(@value,"加入購物車")]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${xp}</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230210 15:49:06.932" endtime="20230210 15:49:06.976"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${xp}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230210 15:49:06.979" level="INFO">Clicking element '//input[contains(@value,"加入購物車")]'.</msg>
+<status status="PASS" starttime="20230210 15:49:06.976" endtime="20230210 15:49:07.100"/>
+</kw>
+<status status="PASS" starttime="20230210 15:49:06.932" endtime="20230210 15:49:07.101"/>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<arg>${cart_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230210 15:49:07.102" level="INFO">Opening url 'https://www.landtop.com.tw/carts'</msg>
+<status status="PASS" starttime="20230210 15:49:07.101" endtime="20230210 15:49:08.347"/>
+</kw>
+<status status="PASS" starttime="20230210 15:48:58.055" endtime="20230210 15:49:08.348"/>
+</kw>
+<kw name="登出">
+<kw name="Click Element" library="Selenium2Library">
+<arg>//a[contains(text(),'登出')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230210 15:49:08.350" level="INFO">Clicking element '//a[contains(text(),'登出')]'.</msg>
+<status status="PASS" starttime="20230210 15:49:08.350" endtime="20230210 15:49:10.579"/>
+</kw>
+<status status="PASS" starttime="20230210 15:49:08.350" endtime="20230210 15:49:10.579"/>
+</kw>
+<kw name="關閉瀏覽器">
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230210 15:49:10.581" endtime="20230210 15:49:17.566"/>
+</kw>
+<status status="PASS" starttime="20230210 15:49:10.580" endtime="20230210 15:49:17.566"/>
+</kw>
+<status status="PASS" starttime="20230210 15:48:44.317" endtime="20230210 15:49:17.567"/>
+</test>
+<doc>微型專案</doc>
+<status status="PASS" starttime="20230210 15:48:44.065" endtime="20230210 15:49:17.568"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Landtop Buy">Landtop Buy</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
