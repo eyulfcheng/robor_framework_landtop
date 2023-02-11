@@ -13,7 +13,9 @@ https://www.python.org/downloads/
 3. 確認是否安裝成功 
 $ robot --version
 
+3.5注意!!腳本並未填寫帳號密碼!
+
 4.執行
 robot landtop_buy.robot
 
-5.可以透過report.html跟測試結果
+5.可以透過report.html跟log.html測試結果
